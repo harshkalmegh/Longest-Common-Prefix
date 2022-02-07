@@ -7,5 +7,31 @@
     <title>Document</title>
   </head>
   <body></body>
-  <script></script>
+  <script>
+    /**
+     * Algorithm
+     * 1. create a function to find longest common prefix which accepts one arguments which is in array
+     * 2. handle edgecase (return enter proper value)
+     * 3. loop the input array
+     * 4. check if first index of output is not equal to next index then return empty string
+     * 5. add first index to empty string and store in variable prefix
+     * 6. return the prefix
+     */
+    var longestCommonPrefix = function (strs) {
+      let prefix = "";
+      //   debugger;
+      for (let i = 0; i < strs[0].length; i++) {
+        // console.log(strs[0]);
+        for (let j = 0; j < strs.length - 1; j++) {
+          console.log(strs[j][i], strs[j + 1][i]);
+          if (strs[j][i] !== strs[j + 1][i]) {
+            return prefix;
+          }
+        }
+        prefix = prefix + strs[0][i];
+      }
+      return prefix;
+    };
+    console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+  </script>
 </html>
